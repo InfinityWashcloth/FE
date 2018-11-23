@@ -1,18 +1,18 @@
 const express = require("express");
 var app = express();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+var http = require("http").Server(app);
+var io = require("socket.io")(http);
 
-app.use(express.static('./'))
+app.use(express.static("./"));
 
-io.on('connection', function (socket) {
-    console.log('a user connected');
+io.on("connection", function(socket) {
+  console.log("a user connected");
 });
 
 setInterval(() => {
-    io.emit('update', { data: 123 });
-}, 500)
+  io.emit("update", { timestamp: +new Date(), predict: Math.random() });
+}, 500);
 
-http.listen(3000, function () {
-    console.log('listening on *:3000');
+http.listen(3000, function() {
+  console.log("listening on *:3000");
 });
