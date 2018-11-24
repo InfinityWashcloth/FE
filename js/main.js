@@ -1,10 +1,10 @@
-var socket = io();
+var socket = io("10.84.4.14:8080/");
 
 const numOfPoint = 50;
 var ctx = document.getElementById("canvas").getContext("2d");
 
 function callback() {
-  console.log(arguments);
+    console.log(arguments);
 }
 
 var myChart = new Chart(ctx, {
@@ -19,7 +19,7 @@ var myChart = new Chart(ctx, {
     },
     options: {
         legend: {
-          display: false,
+            display: false,
         },
         scales: {
             yAxes: [{
