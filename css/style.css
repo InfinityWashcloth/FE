@@ -1,27 +1,28 @@
-canvas{
+canvas {
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
-
     width: 80%;
     height: 80%;
 }
 
 .logo {
-    width: 30%;
-    margin: 5%;
+    height: 20vh;
     display: block;
     align-self: center;
 }
 
 .predict {
-    display: block;
+    position: relative;
+    margin: auto;
+    height: 80vh;
+    width: 80vw;
 }
 
-.main{
+.main {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    max-height: 100vh !important;
+    max-height: 100vh;
     overflow-y: hidden;
 }
