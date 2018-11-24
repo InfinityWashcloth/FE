@@ -10,6 +10,8 @@ canvas {
     height: 20vh;
     display: block;
     align-self: center;
+    position: absolute;
+    opacity: 0.1;
 }
 
 .predict {
