@@ -15,6 +15,9 @@ var myChart = new Chart(ctx, {
         }]
     },
     options: {
+        legend: {
+          display: false,
+        },
         scales: {
             yAxes: [{
                 ticks: {
