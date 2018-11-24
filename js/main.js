@@ -102,6 +102,10 @@ function addDataR(chart, p) {
 }
 
 socket.on("update", function(msg) {
+
+    socket.emit("update");
+
     addData(myChart, msg.ts, msg.amplitude);
-    addDataR(myChart3, msg.analysis_data)
+    addDataR(myChart3, msg.analysis_data);
+
 });
