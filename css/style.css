@@ -6,6 +6,10 @@ canvas {
     height: 80%;
 }
 
+body {
+    height: 100vh;
+}
+
 .logo {
     height: 20vh;
     display: block;
@@ -17,8 +21,11 @@ canvas {
 .chart {
     position: relative;
     margin: auto;
-    height: 50vh;
+    height: 60vh;
     width: 100vw;
+    bottom: 0;
+    position: absolute;
+    bottom: 0;
 }
 
 .main {

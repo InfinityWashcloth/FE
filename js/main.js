@@ -54,30 +54,37 @@ function upd(nw) {
 
 
     let wCount = 0;
-    var t = points.map(el => {
+    var ppoll = points.map(el => {
         wCount += w / numOfPoint
 
         var outh = h - el.y * coefH
-        const out = `${wCount},${outh}`
+        const out = [wCount, outh]
 
-        if (el.y) {
+        return out
+    })
+
+    ppoll = smooth(ppoll)
+    ppoll = smooth(ppoll)
+
+
+    for (let i = 0; i < numOfPoint; i++) {
+        const element = ppoll[i * 2 * 2];
+        var outh = element[1]
+
+        if (outh != h) {
+            wCount += w / numOfPoint
+
             var svgNS = document.querySelector('svg').namespaceURI;
 
             var n = document.createElementNS(svgNS, 'circle');
-            n.setAttribute('cx', wCount + "px");
+            n.setAttribute('cx', element[0] + "px");
             n.setAttribute('cy', outh + "px");
             n.setAttribute('r', "4");
             n.setAttribute('stroke', "#f49080");
             n.setAttribute('stroke-width', "5");
             pnt.appendChild(n)
         }
-
-
-
-        return out
-    }).join(" ")
-
-
+    }
 
     var g = []
 
@@ -94,7 +101,7 @@ function upd(nw) {
 
 
     createGradient(document.querySelector('svg'), 'MyGradient', g);
-    plotEl.setAttribute("points", t);
+    plotEl.setAttribute("points", ppoll);
 }
 
 socket.on("update", function(msg) {
