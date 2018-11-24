@@ -1,5 +1,12 @@
 var socket = io();
 
+socket.on("connect", function(){
+    setTimeout(() => {
+        socket.emit("start");
+    }, 4000)
+   
+})
+
 const numOfPoint = 50;
 var ctx = document.getElementById("canvas").getContext("2d");
 
