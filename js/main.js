@@ -48,11 +48,32 @@ function upd(nw) {
         points.splice(1, 1)
     }
 
+
+    const pnt = document.querySelector(".chart_point")
+    pnt.innerHTML = ''
+
+
     let wCount = 0;
     var t = points.map(el => {
         wCount += w / numOfPoint
 
-        const out = `${wCount},${h - el.y * coefH}`
+        var outh = h - el.y * coefH
+        const out = `${wCount},${outh}`
+
+        if (el.y) {
+            var svgNS = document.querySelector('svg').namespaceURI;
+
+            var n = document.createElementNS(svgNS, 'circle');
+            n.setAttribute('cx', wCount + "px");
+            n.setAttribute('cy', outh + "px");
+            n.setAttribute('r', "4");
+            n.setAttribute('stroke', "#f49080");
+            n.setAttribute('stroke-width', "5");
+            pnt.appendChild(n)
+        }
+
+
+
         return out
     }).join(" ")
 
@@ -64,11 +85,13 @@ function upd(nw) {
         const element = points[index];
         var o = (index / points.length) * 100
 
-        var red = 255 * element.y / 100;
-
-        g.push({ offset: `${o + 3}%`, 'stop-color': `rgb(${red}, ${255 - red}, 0)` })
-
+        if (element.y < 70) {
+            g.push({ offset: `${o + 3}%`, 'stop-color': "rgba(128, 182, 244, 0.6)" })
+        } else {
+            g.push({ offset: `${o + 3}%`, 'stop-color': "rgba(244, 144, 128, 0.6)" })
+        }
     }
+
 
     createGradient(document.querySelector('svg'), 'MyGradient', g);
     plotEl.setAttribute("points", t);
