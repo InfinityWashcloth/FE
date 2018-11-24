@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="apple-touch-icon" href="./favicon.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.dev.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <script src="https://www.rgraph.net/libraries/combined.html/RGraph.common.core.js"></script>
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/style.css">
     <title>Junction 2018</title>
@@ -15,12 +15,10 @@
 
 <body>
 
-    <div class="main">
-        <img class="logo" src="static/outotec-logo.svg" alt="">
-        <div class="predict">
-            <canvas id="canvas"></canvas>
-        </div>
-    </div>
+    <svg class="chart">
+            <defs></defs>
+        <polygon class="chart_poly" />
+    </svg>
 
     <script src="./js/main.js"></script>
 </body>
