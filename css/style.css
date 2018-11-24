@@ -17,8 +17,8 @@ canvas {
 .predict {
     position: relative;
     margin: auto;
-    height: 50vh;
-    width: 50vw;
+    height: 100vh;
+    width: 100vw;
 }
 
 .predict3 {
