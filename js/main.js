@@ -3,6 +3,9 @@ var socket = io();
 const numOfPoint = 50;
 var ctx = document.getElementById("canvas").getContext("2d");
 
+function callback() {
+  console.log(arguments);
+}
 
 var myChart = new Chart(ctx, {
     type: "line",
