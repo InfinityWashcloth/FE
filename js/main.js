@@ -26,7 +26,7 @@ var myChart = new Chart(ctx, {
 });
 
 function addData(chart, label, data) {
-    chart.data.labels.push(label);
+    chart.data.labels.push(new Date(label).toLocaleTimeString());
     chart.data.labels.shift();
     chart.data.datasets.forEach(dataset => {
         dataset.data.push(data);
