@@ -16,7 +16,7 @@ io.on("connection", function(socket) {
 });
 
 setInterval(() => {
-    io.emit("update", { ts: +new Date(), amplitude: [Math.random(),Math.random(),Math.random()], analysis_data: Math.random() });
+    io.emit("update", { ts: +new Date(), amplitude: Math.random(), analysis_data: Math.random() });
 }, 3000);
 
 http.listen(3000, function() {
